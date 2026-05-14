@@ -1,0 +1,159 @@
+---
+title: "AI and M2: the future"
+subtitle: "Machine learning meets Macaulay2"
+author: "Anton Leykin"
+institute: "Georgia Tech"
+date: 2026-05-13
+format:
+  revealjs:
+    theme: dark
+    slide-number: c/t
+    chalkboard: true
+    incremental: false
+    code-line-numbers: true
+    code-overflow: wrap
+    highlight-style: github-dark
+    syntax-definitions:
+      - macaulay2.xml
+    html-math-method: katex
+    fig-align: center
+    hash-type: number
+---
+
+## Why now?
+
+- LLMs read and write code fluently
+- Macaulay2 has a small, **structured** language and a rich package ecosystem
+- Computational algebraic geometry is full of tasks that are
+  - tedious for humans
+  - well-defined for machines
+  - hard for current AI to do *correctly* without help
+
+::: {.fragment}
+**Question.** Where does AI actually move the needle for M2 users?
+:::
+
+---
+
+## A taxonomy of AI $\times$ computer algebra
+
+::: {.incremental}
+1. **Code generation** — natural language $\to$ M2 scripts
+2. **Heuristic guidance** — learned policies inside classical algorithms
+   (term orders, S-pair selection, monomial orderings)
+3. **Surrogate models** — predict invariants without full computation
+4. **Conjecture discovery** — pattern-mining over families of ideals / varieties
+:::
+
+---
+
+## Code generation: the easy win
+
+A prompt like *"compute the Betti numbers of the ideal of the
+twisted cubic in M2"* yields:
+
+```macaulay2
+R = QQ[x,y,z,w];
+I = minors(2, matrix{{x,y,z},{y,z,w}});
+betti res I
+```
+
+::: {.fragment .fade-up}
+**Caveats.** Hallucinated package names, plausible-but-wrong syntax,
+silently incorrect rings.
+:::
+
+---
+
+## Why this is useful: free resolutions
+
+For a finitely generated graded module $M$ over $R = k[x_1, \dots, x_n]$,
+the minimal free resolution
+
+$$
+0 \;\longrightarrow\; F_p \;\longrightarrow\; \cdots
+\;\longrightarrow\; F_1 \;\longrightarrow\; F_0
+\;\longrightarrow\; M \;\longrightarrow\; 0
+$$
+
+encodes the graded Betti numbers
+
+$$
+\beta_{i,j}(M) \;=\; \dim_k \operatorname{Tor}_i^R(M, k)_j .
+$$
+
+Computing them is *exactly* the kind of structured, syntactic task
+where an AI assistant can save real time.
+
+---
+
+## ML for invariants
+
+Predicting $\beta_{i,j}$, regularity, projective dimension,
+or Hilbert series directly from generators.
+
+```macaulay2
+R = QQ[x_1..x_6];
+I = ideal random(R^1, R^{4:-2});
+{ regularity I, pdim module I, degree I }
+```
+
+Recent directions:
+
+- learned **S-pair selection** for Buchberger
+- neural surrogates for **Hilbert series** of monomial ideals
+- reinforcement learning over **term-order** choices
+
+---
+
+## Conjecture discovery
+
+AI as a research assistant, not an oracle:
+
+- enumerate families of ideals
+- compute invariants in M2
+- mine the resulting tables for patterns
+  ($\,$à la OEIS, symbolic regression, sparse regression$\,$)
+
+The human still proves the theorem.
+
+---
+
+## Honest limits
+
+::: {.incremental}
+- **Hallucination** — confidently wrong M2 code
+- **No proof guarantees** — predictions, not theorems
+- **Training data scarcity** — orders of magnitude less M2 on the web than Python
+- **Reproducibility** — versioned packages, deterministic seeds
+:::
+
+---
+
+## A vision: AI-native M2 workflows
+
+Tight verification loop:
+
+$$
+\text{LLM proposes} \;\longrightarrow\; \text{M2 verifies}
+\;\longrightarrow\; \text{LLM refines}
+$$
+
+Concretely:
+
+- M2 as a tool behind an MCP / function-calling interface
+- structured outputs (rings, ideals, modules) round-tripped as JSON
+- the model never *asserts* — it *checks*
+
+---
+
+## Future directions
+
+- a community **M2 benchmark** for code-generating models
+- shared dataset of (ideal, invariants) pairs
+- fine-tuned small models that *know* the M2 language
+- AI-assisted package development and documentation
+
+::: {.fragment}
+### Thank you — questions?
+:::

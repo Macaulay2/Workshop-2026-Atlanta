@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="macaulay2" section="Scientific" extensions="*.m2" mimetype="text/x-macaulay2" version="1" kateversion="5.0" author="Custom" license="MIT">
+  <highlighting>
+    <list name="keywords">
+      <item>if</item>
+      <item>then</item>
+      <item>else</item>
+      <item>for</item>
+      <item>from</item>
+      <item>to</item>
+      <item>do</item>
+      <item>while</item>
+      <item>list</item>
+      <item>apply</item>
+      <item>return</item>
+      <item>break</item>
+      <item>continue</item>
+      <item>try</item>
+      <item>catch</item>
+      <item>scan</item>
+      <item>new</item>
+      <item>of</item>
+      <item>in</item>
+      <item>not</item>
+      <item>and</item>
+      <item>or</item>
+      <item>xor</item>
+      <item>when</item>
+      <item>symbol</item>
+      <item>global</item>
+      <item>local</item>
+      <item>use</item>
+      <item>installPackage</item>
+      <item>loadPackage</item>
+      <item>needsPackage</item>
+      <item>export</item>
+      <item>mutable</item>
+    </list>
+    <list name="constants">
+      <item>true</item>
+      <item>false</item>
+      <item>null</item>
+      <item>infinity</item>
+      <item>ZZ</item>
+      <item>QQ</item>
+      <item>RR</item>
+      <item>CC</item>
+      <item>GF</item>
+    </list>
+    <list name="builtins">
+      <item>ideal</item>
+      <item>ring</item>
+      <item>res</item>
+      <item>Ext</item>
+      <item>Tor</item>
+      <item>hilbertFunction</item>
+      <item>hilbertSeries</item>
+      <item>hilbertPolynomial</item>
+      <item>degree</item>
+      <item>dim</item>
+      <item>codim</item>
+      <item>gens</item>
+      <item>mingens</item>
+      <item>trim</item>
+      <item>prune</item>
+      <item>cokernel</item>
+      <item>kernel</item>
+      <item>image</item>
+      <item>matrix</item>
+      <item>map</item>
+      <item>substitute</item>
+      <item>sub</item>
+      <item>vars</item>
+      <item>numgens</item>
+      <item>coefficientRing</item>
+      <item>ambient</item>
+      <item>decompose</item>
+      <item>primaryDecomposition</item>
+      <item>associatedPrimes</item>
+      <item>radical</item>
+      <item>saturate</item>
+      <item>quotient</item>
+      <item>intersect</item>
+      <item>isSubset</item>
+      <item>module</item>
+      <item>homology</item>
+      <item>resolution</item>
+      <item>betti</item>
+      <item>regularity</item>
+      <item>pdim</item>
+      <item>rank</item>
+      <item>det</item>
+      <item>trace</item>
+      <item>transpose</item>
+      <item>entries</item>
+      <item>flatten</item>
+      <item>sort</item>
+      <item>select</item>
+      <item>positions</item>
+      <item>tally</item>
+      <item>unique</item>
+      <item>set</item>
+      <item>toList</item>
+      <item>toString</item>
+      <item>class</item>
+      <item>parent</item>
+      <item>ancestor</item>
+      <item>describe</item>
+      <item>peek</item>
+      <item>net</item>
+      <item>print</item>
+      <item>stdio</item>
+      <item>error</item>
+      <item>assert</item>
+      <item>isHomogeneous</item>
+      <item>isMonomialIdeal</item>
+      <item>isPrime</item>
+      <item>isPrimary</item>
+      <item>isUnit</item>
+    </list>
+    <list name="types">
+      <item>Ring</item>
+      <item>Ideal</item>
+      <item>Module</item>
+      <item>Matrix</item>
+      <item>ChainComplex</item>
+      <item>ChainComplexMap</item>
+      <item>PolynomialRing</item>
+      <item>QuotientRing</item>
+      <item>MonomialIdeal</item>
+      <item>List</item>
+      <item>Sequence</item>
+      <item>HashTable</item>
+      <item>MutableHashTable</item>
+      <item>String</item>
+      <item>Boolean</item>
+      <item>ZZ</item>
+      <item>QQ</item>
+      <item>RR</item>
+      <item>CC</item>
+      <item>Number</item>
+      <item>Function</item>
+      <item>Type</item>
+      <item>Thing</item>
+      <item>Symbol</item>
+      <item>Option</item>
+      <item>Package</item>
+      <item>Net</item>
+      <item>File</item>
+      <item>Nothing</item>
+      <item>RingElement</item>
+      <item>RingMap</item>
+      <item>GradedModule</item>
+      <item>CoherentSheaf</item>
+      <item>Variety</item>
+      <item>ProjectiveVariety</item>
+      <item>AffineVariety</item>
+    </list>
+    <contexts>
+      <context name="Normal" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces/>
+        <StringDetect attribute="Comment" context="BlockComment" String="{*"/>
+        <Detect2Chars attribute="Comment" context="LineComment" char="-" char1="-"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <keyword attribute="Keyword" context="#stay" String="keywords"/>
+        <keyword attribute="Constant" context="#stay" String="constants"/>
+        <keyword attribute="Built-in" context="#stay" String="builtins"/>
+        <keyword attribute="Data Type" context="#stay" String="types"/>
+        <HlCOct attribute="Number" context="#stay"/>
+        <Int attribute="Number" context="#stay"/>
+        <Float attribute="Number" context="#stay"/>
+        <DetectChar attribute="Operator" context="#stay" char="="/>
+        <Detect2Chars attribute="Operator" context="#stay" char="=" char1="="/>
+        <Detect2Chars attribute="Operator" context="#stay" char="!" char1="="/>
+        <Detect2Chars attribute="Operator" context="#stay" char="=" char1="&gt;"/>
+        <Detect2Chars attribute="Operator" context="#stay" char="." char1="."/>
+        <Detect2Chars attribute="Operator" context="#stay" char="-" char1="&gt;"/>
+        <Detect2Chars attribute="Operator" context="#stay" char="&lt;" char1="&lt;"/>
+        <AnyChar attribute="Operator" context="#stay" String="+-*/^%#|&amp;&lt;&gt;@!~"/>
+        <DetectChar attribute="Symbol" context="#stay" char="{"/>
+        <DetectChar attribute="Symbol" context="#stay" char="}"/>
+        <DetectChar attribute="Symbol" context="#stay" char="("/>
+        <DetectChar attribute="Symbol" context="#stay" char=")"/>
+        <DetectChar attribute="Symbol" context="#stay" char="["/>
+        <DetectChar attribute="Symbol" context="#stay" char="]"/>
+        <DetectChar attribute="Symbol" context="#stay" char=";"/>
+        <DetectChar attribute="Symbol" context="#stay" char=","/>
+      </context>
+      <context name="LineComment" attribute="Comment" lineEndContext="#pop">
+        <DetectSpaces/>
+        <IncludeRules context="##Comments"/>
+      </context>
+      <context name="BlockComment" attribute="Comment" lineEndContext="#stay">
+        <StringDetect attribute="Comment" context="#pop" String="*}"/>
+      </context>
+      <context name="String" attribute="String" lineEndContext="#stay">
+        <Detect2Chars attribute="Escaped" context="#stay" char="\" char1="&quot;"/>
+        <Detect2Chars attribute="Escaped" context="#stay" char="\" char1="\"/>
+        <Detect2Chars attribute="Escaped" context="#stay" char="\" char1="n"/>
+        <Detect2Chars attribute="Escaped" context="#stay" char="\" char1="t"/>
+        <DetectChar attribute="String" context="#pop" char="&quot;"/>
+      </context>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal Text" defStyleNum="dsNormal" spellChecking="false"/>
+      <itemData name="Keyword" defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="Constant" defStyleNum="dsConstant" spellChecking="false"/>
+      <itemData name="Built-in" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="Data Type" defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Number" defStyleNum="dsDecVal" spellChecking="false"/>
+      <itemData name="String" defStyleNum="dsString"/>
+      <itemData name="Escaped" defStyleNum="dsSpecialChar" spellChecking="false"/>
+      <itemData name="Comment" defStyleNum="dsComment"/>
+      <itemData name="Operator" defStyleNum="dsOperator" spellChecking="false"/>
+      <itemData name="Symbol" defStyleNum="dsOperator" spellChecking="false"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="singleLine" start="--"/>
+      <comment name="multiLine" start="{*" end="*}"/>
+    </comments>
+    <keywords casesensitive="1"/>
+  </general>
+</language>

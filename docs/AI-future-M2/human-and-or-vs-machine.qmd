@@ -1,0 +1,93 @@
+---
+title: "Human and/or/vs. Machine"
+author: "Anton Leykin"
+institute: "Georgia Tech"
+date: 2026-05-13
+format:
+  revealjs:
+    theme: dark
+    smaller: true
+    slide-number: c/t
+    chalkboard: true
+    incremental: false
+    code-line-numbers: true
+    code-overflow: wrap
+    highlight-style: github-dark
+    syntax-definitions:
+      - macaulay2.xml
+    html-math-method: katex
+    fig-align: center
+    hash-type: number
+    template-partials:
+      - title-slide.html
+---
+
+## How this deck came to be
+
+A short dialog with an AI assistant, in four turns:
+
+::: {.incremental}
+- **Ask.** *"Plan a Quarto / RevealJS talk: AI and M2: the future, dark theme."*
+- **Clarify.** Assistant asked: audience? *(research)* — what is M2? *(Macaulay2)* —
+  length? *(~10 min)* — extras? *(code + math)*.
+- **Draft.** A 10-slide outline + scaffolded `slides.qmd`: taxonomy,
+  code-gen demo, free-resolution math, ML for invariants, limits, vision.
+- **Refine.** "Dark theme, no execution, use `macaulay2.xml` for syntax
+  highlighting." One YAML edit; done.
+:::
+
+::: {.fragment}
+**Total human effort:** a handful of sentences. **What AI did:** the boilerplate.
+:::
+
+---
+
+## Where AI can help with routine M2 development
+
+::: {.incremental}
+- **Documentation.** Drafting `Node` entries, examples, cross-references;
+  flagging undocumented exported symbols.
+- **Testing.** Synthesizing `TEST ///...///` blocks, edge cases,
+  property-based tests, regression suites from bug reports.
+- **Refactoring.** Modernizing legacy core code (C++ engine, top-level M2),
+  renaming for consistency, dead-code detection.
+- **Package porting.** Migrating packages across M2 versions; updating
+  deprecated idioms; harmonizing style across the distribution.
+- **Interoperability.** Translating between M2, Singular, SageMath,
+  Oscar — both code and documentation.
+- **Triage.** Summarizing issues, reproducing bugs, suggesting minimal
+  failing inputs.
+:::
+
+---
+
+## Five topics to brainstorm together
+
+::: {.incremental}
+1. **An M2-native coding assistant.**
+   A curated, machine-readable corpus of idiomatic M2 — usable as
+   a style guide / memory for frontier models *and* as training data
+   for a fine-tuned small model that *actually* knows M2 syntax,
+   packages, and common idioms.
+
+2. **A natural-language shell.**
+   *"Compute the saturation of $I$ with respect to the irrelevant ideal
+   and show me the Hilbert series."* $\;\to\;$ correct M2, run, explain.
+
+3. **A community M2 benchmark.**
+   Standardized tasks (ideals, varieties, resolutions) for evaluating
+   code-generating models — like HumanEval, but for computer algebra.
+
+4. **AI usage policy for contributions.**
+   Community norms for how AI-assisted code, docs, and tests may enter
+   the M2 distribution — disclosure, review standards, attribution.
+
+5. **Educational effort.**
+   How do we teach students to *speak* the language if the machine
+   can do it for them? What stays essential to learn — and what is
+   safe to delegate?
+:::
+
+::: {.fragment}
+**Discussion:** which of these do *you* want to exist first?
+:::
